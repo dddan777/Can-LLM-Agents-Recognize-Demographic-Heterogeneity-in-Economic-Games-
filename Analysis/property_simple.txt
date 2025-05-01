@@ -1,0 +1,48 @@
+		(1)
+VARIABLES	LABELS	Standardized values of altruism
+		
+female	female	0.285***
+		(0.0607)
+male	male	-0.277***
+		(0.0607)
+young	young	0.302***
+		(0.0607)
+middle	middle	-0.135**
+		(0.0607)
+old	old	-0.0668
+		(0.0607)
+low	low	-0.143**
+		(0.0607)
+medium	medium	-0.0477
+		(0.0607)
+high	high	-0.158***
+		(0.0607)
+caucasian	caucasian	-0.116*
+		(0.0607)
+black	black	0.149**
+		(0.0607)
+native_american	native_american	1.052***
+		(0.0607)
+asian	asian	0.228***
+		(0.0607)
+pacific	pacific	1.127***
+		(0.0607)
+highschool	highschool	-0.143**
+		(0.0607)
+associate	associate	-0.160***
+		(0.0607)
+bachelor	bachelor	-0.207***
+		(0.0607)
+graduate	graduate	-0.171***
+		(0.0607)
+unemployed	unemployed	-0.300***
+		(0.0607)
+employed	employed	-0.190***
+		(0.0607)
+Constant	Constant	-0.0413*
+		(0.0229)
+		
+Observations		7,000
+R-squared		0.119
+Standard errors in parentheses		
+*** p<0.01, ** p<0.05, * p<0.1		

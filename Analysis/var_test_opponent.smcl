@@ -1,0 +1,891 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/dan777demac/Desktop/9.3_ChatGPT-Turing/12.11 Can LLM Display Demographic Heterogeneity/12.27 Yan Analysis/Analysis/var_test.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}31 Dec 2024, 09:58:03
+
+{com}. foreach demo in "gender" "age" "income" "race" "education" "employment" {c -(}
+{txt}  2{com}. gen d_`demo' = `demo' > 0
+{txt}  3{com}. replace d_`demo' = . if `demo' == .
+{txt}  4{com}. by game_type, sort: sdtest answer, by(d_`demo')
+{txt}  5{com}. {c )-}
+{txt}(6,160 real changes made, 6,160 to missing)
+
+{hline}
+-> game_type = beauty_contest
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     50{col 22} 31.57531{col 34} .5664569{col 46} 4.005455{col 58} 30.43697{col 70} 32.71365
+       {txt}1 {c |}{res}{col 12}    100{col 22} 28.24457{col 34} .9971795{col 46} 9.971795{col 58} 26.26595{col 70} 30.22319
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    150{col 22} 29.35482{col 34} .7015537{col 46} 8.592242{col 58} 27.96854{col 70}  30.7411
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.1613
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}49, 99
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0000         {txt}2*Pr(F < f) = {res}0.0000        {txt}   Pr(F > f) = {res}1.0000
+
+{txt}{hline}
+-> game_type = dictator
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}       50{col 34}        0{col 46}        0{col 58}       50{col 70}       50
+       {txt}1 {c |}{res}{col 12}     60{col 22}       50{col 34}        0{col 46}        0{col 58}       50{col 70}       50
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}     90{col 22}       50{col 34}        0{col 46}        0{col 58}       50{col 70}       50
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}       .
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 59
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}     .         {txt}2*Pr(F > f) = {res}     .        {txt}   Pr(F > f) = {res}     .
+
+{txt}{hline}
+-> game_type = no_boundary_beauty_contest
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     50{col 22} 22.11691{col 34} 1.960268{col 46} 13.86119{col 58} 18.17761{col 70} 26.05622
+       {txt}1 {c |}{res}{col 12}    100{col 22} 19.31307{col 34}  1.26863{col 46}  12.6863{col 58} 16.79584{col 70} 21.83031
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    150{col 22} 20.24769{col 34} 1.070446{col 46} 13.11023{col 58} 18.13247{col 70}  22.3629
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  1.1938
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}49, 99
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.7731         {txt}2*Pr(F > f) = {res}0.4537        {txt}   Pr(F > f) = {res}0.2269
+
+{txt}{hline}
+-> game_type = public_good
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}     10.8{col 34} .3194823{col 46} 1.749877{col 58} 10.14659{col 70} 11.45341
+       {txt}1 {c |}{res}{col 12}     60{col 22} 10.36667{col 34} .2720156{col 46} 2.107023{col 58} 9.822365{col 70} 10.91097
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}     90{col 22} 10.51111{col 34} .2103706{col 46} 1.995751{col 58} 10.09311{col 70} 10.92911
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.6897
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 59
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.1382         {txt}2*Pr(F < f) = {res}0.2765        {txt}   Pr(F > f) = {res}0.8618
+
+{txt}{hline}
+-> game_type = trust
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 90.83333{col 34} 3.491231{col 46} 19.12226{col 58} 83.69296{col 70}  97.9737
+       {txt}1 {c |}{res}{col 12}     60{col 22} 82.91667{col 34} 3.058497{col 46} 23.69101{col 58} 76.79663{col 70}  89.0367
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}     90{col 22} 85.55556{col 34} 2.369496{col 46} 22.47901{col 58} 80.84742{col 70} 90.26369
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.6515
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 59
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.1046         {txt}2*Pr(F < f) = {res}0.2092        {txt}   Pr(F > f) = {res}0.8954
+
+{txt}{hline}
+-> game_type = trustBanker
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}       80{col 34} 1.856953{col 46} 10.17095{col 58}  76.2021{col 70}  83.7979
+       {txt}1 {c |}{res}{col 12}     60{col 22} 78.33333{col 34} 1.162422{col 46} 9.004079{col 58} 76.00733{col 70} 80.65933
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}     90{col 22} 78.88889{col 34} .9892612{col 46} 9.384956{col 58} 76.92325{col 70} 80.85453
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  1.2760
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 59
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.7886         {txt}2*Pr(F > f) = {res}0.4228        {txt}   Pr(F > f) = {res}0.2114
+
+{txt}{hline}
+-> game_type = ultimatum
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 49.83333{col 34} .1666667{col 46} .9128709{col 58} 49.49246{col 70}  50.1742
+       {txt}1 {c |}{res}{col 12}     60{col 22} 49.66667{col 34} .2012204{col 46} 1.558646{col 58} 49.26403{col 70} 50.06931
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}     90{col 22} 49.72222{col 34} .1448472{col 46} 1.374141{col 58} 49.43441{col 70} 50.01003
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.3430
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 59
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0012         {txt}2*Pr(F < f) = {res}0.0024        {txt}   Pr(F > f) = {res}0.9988
+
+{txt}{hline}
+-> game_type = ultimatumR
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 29.93567{col 34} 4.503342{col 46} 24.66582{col 58}  20.7253{col 70} 39.14603
+       {txt}1 {c |}{res}{col 12}     60{col 22} 45.68333{col 34} 1.424462{col 46} 11.03383{col 58} 42.83299{col 70} 48.53367
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}     90{col 22} 40.43411{col 34} 1.928382{col 46} 18.29424{col 58} 36.60246{col 70} 44.26576
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  4.9973
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 59
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}1.0000         {txt}2*Pr(F > f) = {res}0.0000        {txt}   Pr(F > f) = {res}0.0000
+{txt}(5,880 real changes made, 5,880 to missing)
+
+{hline}
+-> game_type = beauty_contest
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     50{col 22} 31.57531{col 34} .5664569{col 46} 4.005455{col 58} 30.43697{col 70} 32.71365
+       {txt}1 {c |}{res}{col 12}    150{col 22} 27.70746{col 34} .6549713{col 46} 8.021727{col 58} 26.41323{col 70} 29.00169
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    200{col 22} 28.67442{col 34} .5241652{col 46} 7.412816{col 58} 27.64079{col 70} 29.70806
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.2493
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}49, 149
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0000         {txt}2*Pr(F < f) = {res}0.0000        {txt}   Pr(F > f) = {res}1.0000
+
+{txt}{hline}
+-> game_type = dictator
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}       50{col 34}        0{col 46}        0{col 58}       50{col 70}       50
+       {txt}1 {c |}{res}{col 12}     90{col 22} 50.22222{col 34} .2222222{col 46} 2.108185{col 58} 49.78067{col 70} 50.66377
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    120{col 22} 50.16667{col 34} .1666667{col 46} 1.825742{col 58} 49.83665{col 70} 50.49668
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.0000
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 89
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0000         {txt}2*Pr(F < f) = {res}0.0000        {txt}   Pr(F > f) = {res}1.0000
+
+{txt}{hline}
+-> game_type = no_boundary_beauty_contest
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     50{col 22} 22.11691{col 34} 1.960268{col 46} 13.86119{col 58} 18.17761{col 70} 26.05622
+       {txt}1 {c |}{res}{col 12}    150{col 22} 17.81625{col 34} .9985878{col 46} 12.23015{col 58} 15.84303{col 70} 19.78948
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    200{col 22} 18.89142{col 34} .9021889{col 46} 12.75888{col 58} 17.11234{col 70}  20.6705
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  1.2845
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}49, 149
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.8714         {txt}2*Pr(F > f) = {res}0.2571        {txt}   Pr(F > f) = {res}0.1286
+
+{txt}{hline}
+-> game_type = public_good
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}     10.8{col 34} .3194823{col 46} 1.749877{col 58} 10.14659{col 70} 11.45341
+       {txt}1 {c |}{res}{col 12}     90{col 22} 10.34444{col 34} .1449621{col 46} 1.375231{col 58} 10.05641{col 70} 10.63248
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    120{col 22} 10.45833{col 34} .1353985{col 46} 1.483216{col 58} 10.19023{col 70} 10.72644
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  1.6191
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 89
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.9552         {txt}2*Pr(F > f) = {res}0.0895        {txt}   Pr(F > f) = {res}0.0448
+
+{txt}{hline}
+-> game_type = trust
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 90.83333{col 34} 3.491231{col 46} 19.12226{col 58} 83.69296{col 70}  97.9737
+       {txt}1 {c |}{res}{col 12}     90{col 22} 59.05556{col 34} 2.500804{col 46} 23.72471{col 58} 54.08651{col 70}  64.0246
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    120{col 22}       67{col 34} 2.416968{col 46} 26.47656{col 58} 62.21416{col 70} 71.78584
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.6496
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 89
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0943         {txt}2*Pr(F < f) = {res}0.1886        {txt}   Pr(F > f) = {res}0.9057
+
+{txt}{hline}
+-> game_type = trustBanker
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}       80{col 34} 1.856953{col 46} 10.17095{col 58}  76.2021{col 70}  83.7979
+       {txt}1 {c |}{res}{col 12}     90{col 22} 81.88889{col 34} 1.170747{col 46} 11.10668{col 58} 79.56264{col 70} 84.21514
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    120{col 22} 81.41667{col 34} .9922376{col 46} 10.86942{col 58} 79.45194{col 70}  83.3814
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.8386
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 89
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.3018         {txt}2*Pr(F < f) = {res}0.6037        {txt}   Pr(F > f) = {res}0.6982
+
+{txt}{hline}
+-> game_type = ultimatum
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 49.83333{col 34} .1666667{col 46} .9128709{col 58} 49.49246{col 70}  50.1742
+       {txt}1 {c |}{res}{col 12}     90{col 22} 50.83333{col 34} .4690815{col 46} 4.450098{col 58} 49.90128{col 70} 51.76539
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    120{col 22} 50.58333{col 34} .3559387{col 46} 3.899113{col 58} 49.87854{col 70} 51.28813
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.0421
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 89
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0000         {txt}2*Pr(F < f) = {res}0.0000        {txt}   Pr(F > f) = {res}1.0000
+
+{txt}{hline}
+-> game_type = ultimatumR
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 29.93567{col 34} 4.503342{col 46} 24.66582{col 58}  20.7253{col 70} 39.14603
+       {txt}1 {c |}{res}{col 12}     90{col 22} 36.38889{col 34} .9741598{col 46} 9.241692{col 58} 34.45325{col 70} 38.32452
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    120{col 22} 34.77558{col 34}  1.35406{col 46} 14.83298{col 58} 32.09441{col 70} 37.45676
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  7.1234
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 89
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}1.0000         {txt}2*Pr(F > f) = {res}0.0000        {txt}   Pr(F > f) = {res}0.0000
+{txt}(5,880 real changes made, 5,880 to missing)
+
+{hline}
+-> game_type = beauty_contest
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     50{col 22} 31.57531{col 34} .5664569{col 46} 4.005455{col 58} 30.43697{col 70} 32.71365
+       {txt}1 {c |}{res}{col 12}    150{col 22} 30.41323{col 34} .4104274{col 46} 5.026688{col 58} 29.60222{col 70} 31.22424
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    200{col 22} 30.70375{col 34} .3400285{col 46}  4.80873{col 58} 30.03323{col 70} 31.37427
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.6350
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}49, 149
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0337         {txt}2*Pr(F < f) = {res}0.0675        {txt}   Pr(F > f) = {res}0.9663
+
+{txt}{hline}
+-> game_type = dictator
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}       50{col 34}        0{col 46}        0{col 58}       50{col 70}       50
+       {txt}1 {c |}{res}{col 12}     90{col 22} 50.67222{col 34}  1.16945{col 46} 11.09438{col 58} 48.34855{col 70} 52.99589
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    120{col 22} 50.50417{col 34} .8762645{col 46} 9.598997{col 58} 48.76908{col 70} 52.23926
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.0000
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 89
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0000         {txt}2*Pr(F < f) = {res}0.0000        {txt}   Pr(F > f) = {res}1.0000
+
+{txt}{hline}
+-> game_type = no_boundary_beauty_contest
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     50{col 22} 22.11691{col 34} 1.960268{col 46} 13.86119{col 58} 18.17761{col 70} 26.05622
+       {txt}1 {c |}{res}{col 12}    150{col 22} 18.84954{col 34} .6857887{col 46} 8.399162{col 58} 17.49442{col 70} 20.20467
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    200{col 22} 19.66638{col 34} .7146383{col 46} 10.10651{col 58} 18.25715{col 70} 21.07562
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  2.7235
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}49, 149
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}1.0000         {txt}2*Pr(F > f) = {res}0.0000        {txt}   Pr(F > f) = {res}0.0000
+
+{txt}{hline}
+-> game_type = public_good
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}     10.8{col 34} .3194823{col 46} 1.749877{col 58} 10.14659{col 70} 11.45341
+       {txt}1 {c |}{res}{col 12}     90{col 22} 12.71111{col 34} .4544809{col 46} 4.311585{col 58} 11.80807{col 70} 13.61416
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    120{col 22} 12.23333{col 34} .3575385{col 46} 3.916638{col 58} 11.52537{col 70}  12.9413
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.1647
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 89
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0000         {txt}2*Pr(F < f) = {res}0.0000        {txt}   Pr(F > f) = {res}1.0000
+
+{txt}{hline}
+-> game_type = trust
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 90.83333{col 34} 3.491231{col 46} 19.12226{col 58} 83.69296{col 70}  97.9737
+       {txt}1 {c |}{res}{col 12}     90{col 22} 81.33333{col 34} 2.656817{col 46} 25.20478{col 58} 76.05429{col 70} 86.61237
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    120{col 22} 83.70833{col 34} 2.200948{col 46} 24.11018{col 58} 79.35024{col 70} 88.06643
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.5756
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 89
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0467         {txt}2*Pr(F < f) = {res}0.0933        {txt}   Pr(F > f) = {res}0.9533
+
+{txt}{hline}
+-> game_type = trustBanker
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}       80{col 34} 1.856953{col 46} 10.17095{col 58}  76.2021{col 70}  83.7979
+       {txt}1 {c |}{res}{col 12}     90{col 22} 85.38889{col 34} 1.359821{col 46} 12.90039{col 58} 82.68695{col 70} 88.09082
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    120{col 22} 84.04167{col 34} 1.137125{col 46} 12.45658{col 58} 81.79005{col 70} 86.29329
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.6216
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 89
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0738         {txt}2*Pr(F < f) = {res}0.1476        {txt}   Pr(F > f) = {res}0.9262
+
+{txt}{hline}
+-> game_type = ultimatum
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 49.83333{col 34} .1666667{col 46} .9128709{col 58} 49.49246{col 70}  50.1742
+       {txt}1 {c |}{res}{col 12}     90{col 22} 50.33889{col 34} .9878105{col 46} 9.371193{col 58} 48.37613{col 70} 52.30165
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    120{col 22}  50.2125{col 34} .7412341{col 46} 8.119813{col 58} 48.74478{col 70} 51.68022
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.0095
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 89
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0000         {txt}2*Pr(F < f) = {res}0.0000        {txt}   Pr(F > f) = {res}1.0000
+
+{txt}{hline}
+-> game_type = ultimatumR
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 29.93567{col 34} 4.503342{col 46} 24.66582{col 58}  20.7253{col 70} 39.14603
+       {txt}1 {c |}{res}{col 12}     90{col 22} 36.88889{col 34} 1.181362{col 46} 11.20739{col 58} 34.54155{col 70} 39.23623
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    120{col 22} 35.15058{col 34} 1.447261{col 46} 15.85395{col 58} 32.28486{col 70}  38.0163
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  4.8438
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 89
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}1.0000         {txt}2*Pr(F > f) = {res}0.0000        {txt}   Pr(F > f) = {res}0.0000
+{txt}(5,320 real changes made, 5,320 to missing)
+
+{hline}
+-> game_type = beauty_contest
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     50{col 22} 31.57531{col 34} .5664569{col 46} 4.005455{col 58} 30.43697{col 70} 32.71365
+       {txt}1 {c |}{res}{col 12}    250{col 22} 31.55404{col 34} .3230517{col 46} 5.107896{col 58} 30.91778{col 70}  32.1903
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    300{col 22} 31.55758{col 34} .2849381{col 46} 4.935273{col 58} 30.99685{col 70} 32.11832
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.6149
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}49, 249
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0213         {txt}2*Pr(F < f) = {res}0.0426        {txt}   Pr(F > f) = {res}0.9787
+
+{txt}{hline}
+-> game_type = dictator
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}       50{col 34}        0{col 46}        0{col 58}       50{col 70}       50
+       {txt}1 {c |}{res}{col 12}    150{col 22}       50{col 34}        0{col 46}        0{col 58}       50{col 70}       50
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    180{col 22}       50{col 34}        0{col 46}        0{col 58}       50{col 70}       50
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}       .
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}29, 149
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}     .         {txt}2*Pr(F > f) = {res}     .        {txt}   Pr(F > f) = {res}     .
+
+{txt}{hline}
+-> game_type = no_boundary_beauty_contest
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     50{col 22} 22.11691{col 34} 1.960268{col 46} 13.86119{col 58} 18.17761{col 70} 26.05622
+       {txt}1 {c |}{res}{col 12}    250{col 22}  18.6532{col 34} .6877734{col 46} 10.87465{col 58}  17.2986{col 70} 20.00779
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    300{col 22} 19.23048{col 34} .6624222{col 46} 11.47349{col 58} 17.92688{col 70} 20.53408
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  1.6247
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}49, 249
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.9908         {txt}2*Pr(F > f) = {res}0.0183        {txt}   Pr(F > f) = {res}0.0092
+
+{txt}{hline}
+-> game_type = public_good
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}     10.8{col 34} .3194823{col 46} 1.749877{col 58} 10.14659{col 70} 11.45341
+       {txt}1 {c |}{res}{col 12}    150{col 22} 10.58667{col 34} .1290775{col 46}  1.58087{col 58} 10.33161{col 70} 10.84173
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    180{col 22} 10.62222{col 34} .1197855{col 46} 1.607092{col 58} 10.38585{col 70}  10.8586
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  1.2252
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}29, 149
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.7840         {txt}2*Pr(F > f) = {res}0.4320        {txt}   Pr(F > f) = {res}0.2160
+
+{txt}{hline}
+-> game_type = trust
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 90.83333{col 34} 3.491231{col 46} 19.12226{col 58} 83.69296{col 70}  97.9737
+       {txt}1 {c |}{res}{col 12}    150{col 22} 78.66667{col 34} 1.985781{col 46} 24.32075{col 58} 74.74274{col 70}  82.5906
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    180{col 22} 80.69444{col 34} 1.783069{col 46} 23.92238{col 58}  77.1759{col 70} 84.21298
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.6182
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}29, 149
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0648         {txt}2*Pr(F < f) = {res}0.1296        {txt}   Pr(F > f) = {res}0.9352
+
+{txt}{hline}
+-> game_type = trustBanker
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}       80{col 34} 1.856953{col 46} 10.17095{col 58}  76.2021{col 70}  83.7979
+       {txt}1 {c |}{res}{col 12}    150{col 22} 78.42667{col 34} .6994627{col 46} 8.566633{col 58} 77.04452{col 70} 79.80881
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    180{col 22} 78.68889{col 34} .6590952{col 46}  8.84269{col 58} 77.38829{col 70} 79.98949
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  1.4096
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}29, 149
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.9036         {txt}2*Pr(F > f) = {res}0.1929        {txt}   Pr(F > f) = {res}0.0964
+
+{txt}{hline}
+-> game_type = ultimatum
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 49.83333{col 34} .1666667{col 46} .9128709{col 58} 49.49246{col 70}  50.1742
+       {txt}1 {c |}{res}{col 12}    150{col 22} 49.96667{col 34} .0333333{col 46} .4082483{col 58}  49.9008{col 70} 50.03253
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    180{col 22} 49.94444{col 34} .0391738{col 46}  .525572{col 58} 49.86714{col 70} 50.02175
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  5.0000
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}29, 149
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}1.0000         {txt}2*Pr(F > f) = {res}0.0000        {txt}   Pr(F > f) = {res}0.0000
+
+{txt}{hline}
+-> game_type = ultimatumR
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 29.93567{col 34} 4.503342{col 46} 24.66582{col 58}  20.7253{col 70} 39.14603
+       {txt}1 {c |}{res}{col 12}    150{col 22} 44.86667{col 34} .8109247{col 46} 9.931758{col 58} 43.26427{col 70} 46.46906
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    180{col 22} 42.37817{col 34} 1.084774{col 46} 14.55377{col 58} 40.23758{col 70} 44.51876
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  6.1679
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}29, 149
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}1.0000         {txt}2*Pr(F > f) = {res}0.0000        {txt}   Pr(F > f) = {res}0.0000
+{txt}(5,600 real changes made, 5,600 to missing)
+
+{hline}
+-> game_type = beauty_contest
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     50{col 22} 31.57531{col 34} .5664569{col 46} 4.005455{col 58} 30.43697{col 70} 32.71365
+       {txt}1 {c |}{res}{col 12}    200{col 22} 29.77556{col 34}  .532516{col 46} 7.530914{col 58} 28.72546{col 70} 30.82566
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    250{col 22} 30.13551{col 34} .4427356{col 46} 7.000265{col 58} 29.26353{col 70} 31.00749
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.2829
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}49, 199
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0000         {txt}2*Pr(F < f) = {res}0.0000        {txt}   Pr(F > f) = {res}1.0000
+
+{txt}{hline}
+-> game_type = dictator
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}       50{col 34}        0{col 46}        0{col 58}       50{col 70}       50
+       {txt}1 {c |}{res}{col 12}    120{col 22}   49.875{col 34} .0928558{col 46} 1.017184{col 58} 49.69114{col 70} 50.05886
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    150{col 22}     49.9{col 34} .0743352{col 46}  .910417{col 58} 49.75311{col 70} 50.04689
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.0000
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}29, 119
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0000         {txt}2*Pr(F < f) = {res}0.0000        {txt}   Pr(F > f) = {res}1.0000
+
+{txt}{hline}
+-> game_type = no_boundary_beauty_contest
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     50{col 22} 22.11691{col 34} 1.960268{col 46} 13.86119{col 58} 18.17761{col 70} 26.05622
+       {txt}1 {c |}{res}{col 12}    200{col 22} 17.99026{col 34} .6045574{col 46} 8.549732{col 58}  16.7981{col 70} 19.18242
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    250{col 22} 18.81559{col 34} .6291724{col 46} 9.948088{col 58} 17.57641{col 70} 20.05477
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  2.6284
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}49, 199
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}1.0000         {txt}2*Pr(F > f) = {res}0.0000        {txt}   Pr(F > f) = {res}0.0000
+
+{txt}{hline}
+-> game_type = public_good
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}     10.8{col 34} .3194823{col 46} 1.749877{col 58} 10.14659{col 70} 11.45341
+       {txt}1 {c |}{res}{col 12}    120{col 22} 10.95833{col 34} .1679485{col 46} 1.839784{col 58} 10.62578{col 70} 11.29089
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    150{col 22} 10.92667{col 34} .1483984{col 46} 1.817501{col 58} 10.63343{col 70}  11.2199
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.9047
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}29, 119
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.3906         {txt}2*Pr(F < f) = {res}0.7812        {txt}   Pr(F > f) = {res}0.6094
+
+{txt}{hline}
+-> game_type = trust
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 90.83333{col 34} 3.491231{col 46} 19.12226{col 58} 83.69296{col 70}  97.9737
+       {txt}1 {c |}{res}{col 12}    120{col 22} 78.16667{col 34} 2.260157{col 46} 24.75878{col 58} 73.69133{col 70}   82.642
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    150{col 22}     80.7{col 34} 1.977519{col 46} 24.21956{col 58}  76.7924{col 70}  84.6076
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.5965
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}29, 119
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0543         {txt}2*Pr(F < f) = {res}0.1085        {txt}   Pr(F > f) = {res}0.9457
+
+{txt}{hline}
+-> game_type = trustBanker
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}       80{col 34} 1.856953{col 46} 10.17095{col 58}  76.2021{col 70}  83.7979
+       {txt}1 {c |}{res}{col 12}    120{col 22}   80.875{col 34} .9608267{col 46} 10.52533{col 58} 78.97247{col 70} 82.77753
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    150{col 22}     80.7{col 34} .8514102{col 46}  10.4276{col 58}  79.0176{col 70}  82.3824
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.9338
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}29, 119
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.4318         {txt}2*Pr(F < f) = {res}0.8636        {txt}   Pr(F > f) = {res}0.5682
+
+{txt}{hline}
+-> game_type = ultimatum
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 49.83333{col 34} .1666667{col 46} .9128709{col 58} 49.49246{col 70}  50.1742
+       {txt}1 {c |}{res}{col 12}    120{col 22} 49.16667{col 34} .2668242{col 46} 2.922912{col 58} 48.63833{col 70} 49.69501
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    150{col 22}     49.3{col 34} .2169032{col 46}  2.65651{col 58}  48.8714{col 70}  49.7286
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.0975
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}29, 119
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0000         {txt}2*Pr(F < f) = {res}0.0000        {txt}   Pr(F > f) = {res}1.0000
+
+{txt}{hline}
+-> game_type = ultimatumR
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 29.93567{col 34} 4.503342{col 46} 24.66582{col 58}  20.7253{col 70} 39.14603
+       {txt}1 {c |}{res}{col 12}    120{col 22} 34.54167{col 34}  .719856{col 46} 7.885628{col 58} 33.11628{col 70} 35.96705
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    150{col 22} 33.62047{col 34}  1.06925{col 46} 13.09558{col 58} 31.50762{col 70} 35.73332
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  9.7840
+{txt}H0: ratio = 1                                    Degrees of freedom =  {res}29, 119
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}1.0000         {txt}2*Pr(F > f) = {res}0.0000        {txt}   Pr(F > f) = {res}0.0000
+{txt}(6,160 real changes made, 6,160 to missing)
+
+{hline}
+-> game_type = beauty_contest
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     50{col 22} 31.57531{col 34} .5664569{col 46} 4.005455{col 58} 30.43697{col 70} 32.71365
+       {txt}1 {c |}{res}{col 12}    100{col 22} 30.86575{col 34} .7126809{col 46} 7.126809{col 58} 29.45164{col 70} 32.27987
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    150{col 22} 31.10227{col 34} .5107906{col 46} 6.255881{col 58} 30.09294{col 70}  32.1116
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.3159
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}49, 99
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0000         {txt}2*Pr(F < f) = {res}0.0000        {txt}   Pr(F > f) = {res}1.0000
+
+{txt}{hline}
+-> game_type = dictator
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}       50{col 34}        0{col 46}        0{col 58}       50{col 70}       50
+       {txt}1 {c |}{res}{col 12}     60{col 22} 54.83333{col 34} .9430587{col 46} 7.304901{col 58} 52.94628{col 70} 56.72039
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}     90{col 22} 53.22222{col 34} .6718484{col 46} 6.373713{col 58} 51.88727{col 70} 54.55717
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.0000
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 59
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0000         {txt}2*Pr(F < f) = {res}0.0000        {txt}   Pr(F > f) = {res}1.0000
+
+{txt}{hline}
+-> game_type = no_boundary_beauty_contest
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     50{col 22} 22.11691{col 34} 1.960268{col 46} 13.86119{col 58} 18.17761{col 70} 26.05622
+       {txt}1 {c |}{res}{col 12}    100{col 22} 16.94029{col 34} .9200044{col 46} 9.200044{col 58}  15.1148{col 70} 18.76578
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    150{col 22} 18.66583{col 34} .9143936{col 46} 11.19899{col 58} 16.85897{col 70} 20.47268
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  2.2700
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}49, 99
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.9997         {txt}2*Pr(F > f) = {res}0.0006        {txt}   Pr(F > f) = {res}0.0003
+
+{txt}{hline}
+-> game_type = public_good
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}     10.8{col 34} .3194823{col 46} 1.749877{col 58} 10.14659{col 70} 11.45341
+       {txt}1 {c |}{res}{col 12}     60{col 22} 10.28333{col 34} .2018161{col 46} 1.563261{col 58}   9.8795{col 70} 10.68717
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}     90{col 22} 10.45556{col 34} .1724908{col 46} 1.636392{col 58} 10.11282{col 70} 10.79829
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  1.2530
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 59
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.7716         {txt}2*Pr(F > f) = {res}0.4569        {txt}   Pr(F > f) = {res}0.2284
+
+{txt}{hline}
+-> game_type = trust
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 90.83333{col 34} 3.491231{col 46} 19.12226{col 58} 83.69296{col 70}  97.9737
+       {txt}1 {c |}{res}{col 12}     60{col 22}     69.5{col 34} 3.221354{col 46}  24.9525{col 58} 63.05409{col 70} 75.94591
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}     90{col 22} 76.61111{col 34} 2.654499{col 46} 25.18279{col 58} 71.33668{col 70} 81.88554
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.5873
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 59
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0597         {txt}2*Pr(F < f) = {res}0.1194        {txt}   Pr(F > f) = {res}0.9403
+
+{txt}{hline}
+-> game_type = trustBanker
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22}       80{col 34} 1.856953{col 46} 10.17095{col 58}  76.2021{col 70}  83.7979
+       {txt}1 {c |}{res}{col 12}     60{col 22}    80.25{col 34} 1.367629{col 46} 10.59361{col 58} 77.51338{col 70} 82.98662
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}     90{col 22} 80.16667{col 34} 1.096043{col 46} 10.39798{col 58} 77.98885{col 70} 82.34448
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.9218
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 59
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.4150         {txt}2*Pr(F < f) = {res}0.8301        {txt}   Pr(F > f) = {res}0.5850
+
+{txt}{hline}
+-> game_type = ultimatum
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 49.83333{col 34} .1666667{col 46} .9128709{col 58} 49.49246{col 70}  50.1742
+       {txt}1 {c |}{res}{col 12}     60{col 22}    52.75{col 34} .9389936{col 46} 7.273413{col 58} 50.87108{col 70} 54.62892
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}     90{col 22} 51.77778{col 34} .6433716{col 46} 6.103559{col 58} 50.49941{col 70} 53.05614
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  0.0158
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 59
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}0.0000         {txt}2*Pr(F < f) = {res}0.0000        {txt}   Pr(F > f) = {res}1.0000
+
+{txt}{hline}
+-> game_type = ultimatumR
+
+Variance ratio test
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}     30{col 22} 29.93567{col 34} 4.503342{col 46} 24.66582{col 58}  20.7253{col 70} 39.14603
+       {txt}1 {c |}{res}{col 12}     60{col 22} 34.51667{col 34} 1.528171{col 46} 11.83716{col 58}  31.4588{col 70} 37.57453
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}     90{col 22} 32.98967{col 34}  1.81306{col 46}  17.2002{col 58} 29.38715{col 70} 36.59218
+{txt}{hline 9}{c BT}{hline 68}
+    ratio = sd({res}0{txt}) / sd({res}1{txt})                                         f = {res}  4.3421
+{txt}H0: ratio = 1                                    Degrees of freedom =   {res}29, 59
+
+    {txt}Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = {res}1.0000         {txt}2*Pr(F > f) = {res}0.0000        {txt}   Pr(F > f) = {res}0.0000
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/dan777demac/Desktop/9.3_ChatGPT-Turing/12.11 Can LLM Display Demographic Heterogeneity/12.27 Yan Analysis/Analysis/var_test.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}31 Dec 2024, 09:58:03
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
